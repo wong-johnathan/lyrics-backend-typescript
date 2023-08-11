@@ -6,32 +6,14 @@ jobs:
   run-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Cache Dependancies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: node-modules-${{hashFiles('**/package-lock.json')}}
-      - name: Setup node
-        uses: actions/setup-node@v3
-      - name: Install Dependancies
-        run: npm install
+      - name: Checkout & install Dependancies
+        uses: ./.github/actions/checkout_install.yml
       - name: Build
         run: npm run build
   run-lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Cache Dependancies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: node-modules-${{hashFiles('**/package-lock.json')}}
-      - name: Setup node
-        uses: actions/setup-node@v3
-      - name: Install Dependancies
-        run: npm run i
+      - name: Checkout & install Dependancies
+        uses: ./.github/actions/checkout_install.yml
       - name: Lint
         run: npm run lint
