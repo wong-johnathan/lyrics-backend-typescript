@@ -1,6 +1,7 @@
 on:
   pull_request:
     branches: [main]
+  workflow_dispatch:
 jobs:
   run-build:
     runs-on: ubuntu-latest
@@ -34,4 +35,3 @@ jobs:
         run: npm run install
       - name: Lint
         run: npm run lint
-
