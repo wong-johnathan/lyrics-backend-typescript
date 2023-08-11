@@ -8,9 +8,10 @@ runs:
     - name: Cache Dependancies
       uses: actions/cache@v3
       with:
-      path: ~/.npm
-      key:  node-modules-${{hashFiles('**/package-lock.json')}}
+        path: ~/.npm
+        key:  node-modules-${{hashFiles('**/package-lock.json')}}
     - name: Setup node
       uses: actions/setup-node@v3
     - name: Install Dependancies
+      shell: bash
       run: npm install
