@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout & install Dependancies
-        uses: ./.github/actions/checkout_install.yml
+        uses: ./.github/actions/checkout_install
       - name: Build
         run: npm run build
   run-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout & install Dependancies
-        uses: ./.github/actions/checkout_install.yml
+        uses: ./.github/actions/checkout_install
       - name: Lint
         run: npm run lint
