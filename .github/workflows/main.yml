@@ -6,6 +6,8 @@ jobs:
   run-build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Checkout & install Dependancies
         uses: ./.github/actions/checkout_install
       - name: Build
@@ -13,6 +15,8 @@ jobs:
   run-lint:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Checkout & install Dependancies
         uses: ./.github/actions/checkout_install
       - name: Lint
