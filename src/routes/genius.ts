@@ -18,7 +18,7 @@ router.get("/song/:searchStr", async (req, res) => {
   }
 });
 
-router.get("/song/songID/:songID", async (req, res: Object) => {
+router.get("/song/songID/:songID", async (req, res) => {
   try {
     const { songID } = req.params;
     const data = await getSongByID(songID);
