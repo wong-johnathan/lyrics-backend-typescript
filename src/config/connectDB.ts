@@ -1,15 +1,14 @@
 import mongoose from "mongoose";
 import { MONGOURI } from ".";
-
+console.log(MONGOURI)
 const connectDB = () => {
-  console.log(MONGOURI);
   if (MONGOURI) {
     mongoose.set("strictQuery", true);
     mongoose
       .connect(MONGOURI)
       .then(() => console.log("DB Connected"))
       .catch(e => {
-        console.log(e);
+        console.log(e.message);
         process.exit(1);
       });
   } else {

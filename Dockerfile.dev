@@ -1,5 +1,14 @@
-FROM node:18
+
+FROM node:current-alpine
 WORKDIR /app
+
+# Install chromium manually (skip Puppeteer's download)
+RUN apk add chromium
+
+# Set environment variables to avoid download and specify binary path
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
 COPY package*.json .
 
 RUN npm install
